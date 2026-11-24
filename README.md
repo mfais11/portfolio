@@ -8,11 +8,11 @@ Portfólio criado no módulo **Mundo do Trabalho**, com as entregas que desenvol
 
 | Nº | Entrega |
 |----|---------|
-| 01 | [Capa do Meu Álbum](./01-capa-album/) |
-| 02 | [Mundo SENAI](./02-mundo-senai/) |
-| 03 | [Árvore das Profissões](./04-arvore-profissoes/) |
-| 04 | [Âncoras de Carreira](./05-ancoras-manifesto/) |
-| 05 | [Manifesto](./05-ancoras-manifesto/) |
+| 01 | Capa do Meu Álbum |
+| 02 | Mundo SENAI |
+| 03 | Árvore das Profissões |
+| 04 | Âncoras de Carreira |
+| 05 | Manifesto |
 
 ## Tecnologias
 
