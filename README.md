@@ -2,7 +2,7 @@
 
 Portfólio criado no módulo **Mundo do Trabalho**, com as entregas que desenvolvi no curso de **Informática para Internet**.
 
-📍 Varginha, MG · ✉️ silvamarinna62@gmail.com · 🐙 [github.com/mfais11](https://github.com/mfais11)
+📍 Varginha, MG · silvamarinna62@gmail.com · [github.com/mfais11](https://github.com/mfais11)
 
 ## Entregas
 
