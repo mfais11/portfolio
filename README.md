@@ -14,10 +14,6 @@ Portfólio criado no módulo **Mundo do Trabalho**, com as entregas que desenvol
 | 04 | Âncoras de Carreira |
 | 05 | Manifesto |
 
-## Tecnologias
-
-HTML5 · CSS3 · JavaScript puro
-
 ## Como ver
 
 Baixe o repositório e abra o `index.html` no navegador. Mantenha as pastas e os nomes dos arquivos como estão, para as imagens carregarem.
