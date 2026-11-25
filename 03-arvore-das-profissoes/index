@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Árvore das Profissões — Marina Aparecida Fais</title>
+
+<style>
+/* RESET / TOKENS (mesmos do portfólio) */
+:root{
+  --paper:#faf7f2; --paper-2:#f5f1ea; --white:#fffdf9;
+  --blue:#124dcc; --blue-dark:#0b389c;
+  --green:#b9ed42; --green-dark:#8bbf18;
+  --pink:#ff6d68; --yellow:#f6c84c; --lavender:#dcd8fa;
+  --ink:#171717; --muted:#555555; --line:#dedbd4;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --hand: "Comic Sans MS", "Segoe Print", cursive;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;overflow-x:hidden;}
+img,svg{max-width:100%;display:block;}
+a{color:inherit;}
+button{font:inherit;}
+::selection{background:var(--green);color:#111;}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;}
+
+.wrap{width:min(1180px, calc(100% - 72px));margin:0 auto;position:relative;}
+section{position:relative;scroll-margin-top:90px;}
+
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(250,247,242,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-row{min-height:74px;display:flex;align-items:center;justify-content:space-between;}
+.nav-mark{text-decoration:none;font-size:20px;font-weight:900;letter-spacing:-.5px;}
+.nav-mark::after{content:"";display:inline-block;width:7px;height:7px;margin-left:7px;border-radius:50%;background:var(--pink);vertical-align:middle;}
+.nav-links{list-style:none;display:flex;gap:34px;padding:0;margin:0;}
+.nav-links a{text-decoration:none;font-size:14px;font-weight:700;position:relative;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-7px;width:100%;height:3px;background:var(--pink);transform:scaleX(0);transform-origin:center;transition:.25s;border-radius:50%;}
+.nav-links a:hover::after{transform:scaleX(1);}
+@media(max-width:700px){
+  .wrap{width:min(100% - 40px, 1180px);}
+  .nav-row{min-height:64px;}
+  .nav-links{gap:15px;}
+  .nav-links a{font-size:12px;}
+}
+
+/* BOTÕES (mesmos do portfólio) */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 24px;border-radius:7px;text-decoration:none;font-size:13px;font-weight:900;transition:.25s;border:0;cursor:pointer;}
+.btn-primary{color:#fff;background:#111;}
+.btn-primary:hover{background:var(--blue);transform:translateY(-3px);}
+.btn-secondary{position:relative;color:#111;padding-left:0;padding-right:0;background:none;}
+.btn-secondary::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:5px;background:var(--lavender);z-index:-1;transform:rotate(-1deg);}
+.btn-secondary:hover{color:var(--blue);}
+
+/* CABEÇALHO DA PÁGINA */
+.page-head{padding:74px 0 40px;}
+.back-link{display:inline-block;margin-bottom:26px;font-size:13px;font-weight:900;color:var(--blue);text-decoration:none;}
+.back-link:hover{text-decoration:underline;}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:800;margin-bottom:18px;}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--pink);border-radius:50%;}
+.section-title{font-family:var(--serif);color:var(--blue);font-size:clamp(3rem, 6vw, 5rem);line-height:.85;letter-spacing:-3px;margin:0;font-weight:900;}
+.section-title::after{content:"";display:block;width:110px;height:8px;margin-top:12px;background:var(--green);border-radius:50%;transform:rotate(-2deg);}
+.page-head-row{display:flex;align-items:end;justify-content:space-between;gap:30px;}
+.page-head-row p{max-width:420px;margin:0;color:var(--muted);}
+.page-actions{margin-top:30px;display:flex;gap:22px;align-items:center;flex-wrap:wrap;}
+@media(max-width:800px){.page-head-row{display:block;}.page-head-row p{margin-top:22px;}}
+
+/* PROJETOS */
+.projects{padding:30px 0 120px;}
+.mundo-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.mundo-card{background:#fff;border:1px solid #e5e1d9;border-radius:14px;overflow:hidden;box-shadow:0 7px 18px rgba(0,0,0,.04);transition:.3s;display:flex;flex-direction:column;}
+.mundo-card:hover{transform:translateY(-8px);box-shadow:0 20px 32px rgba(0,0,0,.1);}
+.mundo-photo{aspect-ratio:1 / 1;overflow:hidden;background:#e9e2fb;}
+.mundo-photo img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .4s ease;}
+.mundo-card:hover .mundo-photo img{transform:scale(1.04);}
+.mundo-content{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;}
+.project-number{display:inline-block;font-size:11px;font-weight:900;color:var(--blue);margin-bottom:6px;}
+.mundo-content h3{margin:0 0 10px;font-family:var(--serif);font-size:25px;color:var(--ink);}
+.mundo-content p{font-size:14px;color:var(--muted);line-height:1.55;margin:0 0 20px;text-align:justify;}
+.mundo-content .btn{align-self:flex-start;margin-top:auto;}
+.mundo-grid.single{grid-template-columns:1fr;}
+.mundo-photo.wide{aspect-ratio:16 / 9;background:#faf7f2;}
+.mundo-photo.wide a{display:block;width:100%;height:100%;}
+.mundo-card.wide-card .mundo-content p{max-width:900px;}
+@media(max-width:800px){.mundo-grid{grid-template-columns:1fr;}}
+
+/* DIALOG "O QUE É O MUNDO SENAI?" */
+.dialog-overlay{position:fixed;inset:0;z-index:10000;background:rgba(23,23,23,.88);display:none;align-items:center;justify-content:center;padding:24px;}
+.dialog-overlay.open{display:flex;}
+.dialog-box{position:relative;max-width:560px;max-height:100%;overflow:auto;background:var(--lavender);border-radius:28px 8px 28px 8px;padding:38px 38px 34px;box-shadow:0 30px 60px rgba(0,0,0,.4);}
+.dialog-box h2{margin:0 0 18px;font-family:var(--serif);color:var(--blue);font-size:clamp(1.8rem, 4vw, 2.4rem);line-height:1;letter-spacing:-1px;font-weight:900;}
+.dialog-box p{margin:0 0 16px;font-size:16px;text-align:justify;}
+.dialog-box .btn{margin-top:10px;}
+
+/* FOOTER */
+footer{background:var(--paper);padding:28px 0 35px;}
+.footer-row{display:flex;justify-content:space-between;gap:30px;align-items:center;border-top:1px solid #ddd8cf;padding-top:24px;}
+.footer-name{font-weight:900;}
+.footer-meta{display:flex;gap:25px;color:#777;font-size:12px;}
+@media(max-width:600px){
+  .footer-row{display:block;}
+  .footer-meta{margin-top:12px;flex-wrap:wrap;}
+}
+
+/* CLICK HEARTS (mesmo efeito do portfólio) */
+.click-heart{position:fixed;left:0;top:0;pointer-events:none;z-index:99999;font-size:var(--heart-size, 20px);color:var(--heart-color, var(--pink));transform:translate(-50%,-50%);animation:heart-float .9s ease-out forwards;will-change:transform,opacity;}
+@keyframes heart-float{
+  0%{transform:translate(-50%,-50%) translate(0,0) scale(.4) rotate(0deg);opacity:1;}
+  100%{transform:translate(-50%,-50%) translate(var(--dx,0px),-90px) scale(1.1) rotate(var(--rot,0deg));opacity:0;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .click-heart{display:none;}
+  .mundo-card,.mundo-photo img,.btn{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="wrap nav-row">
+    <a href="../index.html" class="nav-mark">Marina Fais</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#sobre">Sobre</a></li>
+      <li><a href="../index.html#entregas">Entregas</a></li>
+      <li><a href="../index.html#experiencia">Experiência</a></li>
+      <li><a href="../index.html#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- CABEÇALHO -->
+<section class="page-head" id="topo">
+  <div class="wrap">
+    <a href="../index.html#entregas" class="back-link">← Voltar às entregas</a>
+    <div class="eyebrow">Entrega 03</div>
+
+    <div class="page-head-row">
+      <h1 class="section-title">Árvore das Profissões</h1>
+      <p>Um mapa da minha família, dos avós aos filhos, que mostra o parentesco, a profissão e o que cada pessoa faz no trabalho. O projeto completo está disponível no GitHub.</p>
+    </div>
+
+    <div class="page-actions">
+      <button type="button" class="btn btn-primary" id="openDialog" aria-haspopup="dialog">Sobre o projeto</button>
+      <a class="btn btn-secondary" href="https://github.com/mfais11/arvore-das-profissoes" target="_blank" rel="noopener noreferrer">Ver repositório no GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ÁRVORE -->
+<section class="projects" id="projetos">
+  <div class="wrap">
+    <div class="mundo-grid single">
+
+      <article class="mundo-card wide-card">
+        <div class="mundo-photo wide">
+          <a href="./images/arvore-hd.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir a árvore em tamanho maior">
+            <img
+              src="./images/arvore.png"
+              srcset="./images/arvore.png 1x, ./images/arvore-hd.png 2x"
+              alt="Árvore das profissões da família de Marina Fais, com três gerações: avós Manoelina, João, Aparecida e José; pais Carlos e Cristiele; e os filhos Marina e Gustavo, cada um com profissão e uma atividade."
+              loading="lazy">
+          </a>
+        </div>
+        <div class="mundo-content">
+          <h3>Membros mais próximos</h3>
+          <p>
+            Os avós ficam em cima, os pais no meio e eu e meu irmão Gustavo embaixo, com uma
+            linha por geração. Cada pessoa tem o nome, a profissão e uma atividade que executa,
+            e as linhas pontilhadas ligam os casais e levam até os filhos. Só o meu cartão tem
+            cor de destaque.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-name">Marina Aparecida Fais</div>
+      <div class="footer-meta">
+        <a href="mailto:silvamarinna62@gmail.com">silvamarinna62@gmail.com</a>
+        <span>Varginha, MG</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- DIALOG: SOBRE O PROJETO -->
+<div class="dialog-overlay" id="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+  <div class="dialog-box">
+    <h2 id="dialogTitle">Sobre o projeto</h2>
+    <p>
+      Esta entrega faz parte do módulo Mundo do Trabalho. A proposta era montar uma árvore
+      com os familiares mais próximos, mostrando as profissões que fazem parte da minha história.
+    </p>
+    <p>
+      A árvore tem uma linha por geração: avós em cima, pais no meio e os filhos embaixo.
+      Cada pessoa aparece com nome, profissão e uma atividade que executa, e quanto mais
+      detalhada a árvore, mais aparecem as influências.
+    </p>
+    <button type="button" class="btn btn-primary" id="closeDialog">OK, entendi!</button>
+  </div>
+</div>
+
+<script>
+/* DIALOG */
+const dialog = document.getElementById("dialog");
+const openBtn = document.getElementById("openDialog");
+const closeBtn = document.getElementById("closeDialog");
+
+function openDialog(){
+  dialog.classList.add("open");
+  document.body.style.overflow = "hidden";
+  closeBtn.focus();
+}
+
+function closeDialog(){
+  dialog.classList.remove("open");
+  document.body.style.overflow = "";
+  openBtn.focus();
+}
+
+openBtn.addEventListener("click", openDialog);
+closeBtn.addEventListener("click", closeDialog);
+dialog.addEventListener("click", event => {
+  if(event.target === dialog){ closeDialog(); }
+});
+document.addEventListener("keydown", event => {
+  if(event.key === "Escape" && dialog.classList.contains("open")){ closeDialog(); }
+});
+
+/* CLICK HEARTS EFFECT (igual ao portfólio) */
+const heartColors = ["#ff6d68", "#124dcc", "#f6c84c", "#b9ed42", "#dcd8fa"];
+
+function spawnHeart(x, y){
+  const heart = document.createElement("span");
+  heart.className = "click-heart";
+  heart.textContent = "❤";
+
+  const dx = (Math.random() * 60) - 30;
+  const rot = (Math.random() * 40) - 20;
+  const size = 14 + Math.random() * 14;
+  const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+
+  heart.style.left = x + "px";
+  heart.style.top = y + "px";
+  heart.style.setProperty("--dx", dx + "px");
+  heart.style.setProperty("--rot", rot + "deg");
+  heart.style.setProperty("--heart-size", size + "px");
+  heart.style.setProperty("--heart-color", color);
+
+  document.body.appendChild(heart);
+  heart.addEventListener("animationend", () => heart.remove());
+}
+
+document.addEventListener("click", event => {
+  const count = 3 + Math.floor(Math.random() * 3);
+  for(let i = 0; i < count; i++){
+    spawnHeart(event.clientX, event.clientY);
+  }
+});
+</script>
+
+</body>
+</html>
