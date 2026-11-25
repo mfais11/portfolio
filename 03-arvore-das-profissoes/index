@@ -158,10 +158,9 @@ footer{background:var(--paper);padding:28px 0 35px;}
 
       <article class="mundo-card wide-card">
         <div class="mundo-photo wide">
-          <a href="./images/arvore-hd.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir a árvore em tamanho maior">
+          <a href="./imagem/arvore.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir a árvore em tamanho maior">
             <img
-              src="./images/arvore.png"
-              srcset="./images/arvore.png 1x, ./images/arvore-hd.png 2x"
+              src="./imagem/arvore.png"
               alt="Árvore das profissões da família de Marina Fais, com três gerações: avós Manoelina, João, Aparecida e José; pais Carlos e Cristiele; e os filhos Marina e Gustavo, cada um com profissão e uma atividade."
               loading="lazy">
           </a>
