@@ -1,6 +1,6 @@
 # Portfólio · Marina Aparecida Fais
 
-Portfólio criado no módulo **Mundo do Trabalho**, com as entregas que desenvolvi no curso de **Informática para Internet**.
+Portfólio criado no módulo **Mundo do Trabalho**, com algumas das entregas que desenvolvi no curso de **Informática para Internet**.
 
 📍 Varginha, MG · silvamarinna62@gmail.com · [github.com/mfais11](https://github.com/mfais11)
 
