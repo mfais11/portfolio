@@ -11,8 +11,7 @@ Portfólio criado no módulo **Mundo do Trabalho**, com algumas das entregas que
 | 01 | Capa do Meu Álbum |
 | 02 | Mundo SENAI |
 | 03 | Árvore das Profissões |
-| 04 | Âncoras de Carreira |
-| 05 | Manifesto |
+| 04 | Janela de Johari |
 
 ## Como ver
 
